@@ -1,0 +1,917 @@
+
+:root {
+    --branco: #FFFFFF;
+    --preto: #171717;
+    --roxo: #7C3AED;
+    --roxo-hover: #6D28D9;
+    --roxo-claro: #F3E8FF;
+    --fundo: #F8F7FA;
+    --cinza: #737373;
+    --borda: #E5E5E5;
+    --verde: #16A34A;
+    --vermelho: #DC2626;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--fundo);
+    color: var(--preto);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Cabeçalho */
+
+.cabecalho {
+    padding: 36px 24px 28px;
+    text-align: center;
+    background: var(--branco);
+    border-bottom: 1px solid var(--borda);
+}
+
+.cabecalho h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.cabecalho p {
+    margin-top: 5px;
+    color: var(--cinza);
+    font-size: 15px;
+}
+
+/* Conteúdo principal */
+
+.container {
+    width: min(100% - 40px, 850px);
+    margin: 40px auto;
+    flex: 1;
+}
+
+/* Pesquisa */
+
+.controles {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.pesquisa {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    gap: 10px;
+}
+
+.pesquisa input[type="text"] {
+    width: 100%;
+    min-width: 0;
+    height: 50px;
+    padding: 0 16px;
+    color: var(--preto);
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pesquisa input[type="text"]::placeholder {
+    color: #A3A3A3;
+}
+
+.pesquisa input[type="text"]:focus {
+    border-color: var(--roxo);
+    box-shadow: 0 0 0 3px var(--roxo-claro);
+}
+
+.pesquisa button {
+    height: 50px;
+    padding: 0 20px;
+    color: var(--branco);
+    background: var(--preto);
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.pesquisa button:hover {
+    background: #333333;
+}
+
+/* Botão circular de adicionar */
+
+.btn-adicionar {
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    color: var(--branco);
+    background: var(--roxo);
+    border: none;
+    border-radius: 50%;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+    box-shadow: 0 4px 12px #7C3AED30;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.btn-adicionar:hover {
+    color: var(--branco);
+    background: var(--roxo-hover);
+    transform: translateY(-2px);
+}
+
+/* Filtros */
+
+.filtros {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filtros a {
+    padding: 9px 18px;
+    color: var(--cinza);
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.filtros a:hover {
+    color: var(--roxo);
+    border-color: var(--roxo);
+}
+
+.filtros a.ativo {
+    color: var(--branco);
+    background: var(--roxo);
+    border-color: var(--roxo);
+}
+
+/* Lista de tarefas */
+
+.lista-tarefas h2 {
+    margin-bottom: 18px;
+    font-size: 21px;
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+.tarefa {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.tarefa:hover {
+    border-color: #D8C5FA;
+    box-shadow: 0 4px 16px #17171708;
+}
+
+.form-tarefa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    min-width: 0;
+    gap: 12px;
+}
+
+.tarefa-conteudo {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.tarefa-conteudo input[type="checkbox"] {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+    accent-color: var(--roxo);
+    cursor: pointer;
+}
+
+.tarefa-conteudo span {
+    overflow-wrap: anywhere;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+/* Tarefa concluída */
+
+.tarefa.concluida .tarefa-conteudo span {
+    color: #888888;
+    text-decoration: line-through;
+}
+
+/* Botão de atualizar status */
+
+.btn-status {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--roxo);
+    background: var(--roxo-claro);
+    border: 1px solid #DDD0FF;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn-status:hover {
+    color: var(--branco);
+    background: var(--roxo);
+    transform: translateY(-2px);
+}
+
+.btn-status:active {
+    transform: scale(0.96);
+}
+
+/* Botão de excluir */
+
+.btn-excluir {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--vermelho);
+    background: var(--branco);
+    border: 1px solid #FECACA;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn-excluir:hover {
+    color: var(--branco);
+    background: var(--vermelho);
+    transform: translateY(-2px);
+}
+
+/* Lista vazia */
+
+.lista-vazia {
+    padding: 42px 24px;
+    text-align: center;
+    background: var(--branco);
+    border: 1px dashed #D4D4D8;
+    border-radius: 16px;
+}
+
+.lista-vazia p {
+    margin-bottom: 18px;
+    color: var(--cinza);
+}
+
+.lista-vazia .btn-adicionar {
+    margin-top: 8px;
+}
+
+/* Formulário de inclusão */
+
+.form-inclusao {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 28px;
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+}
+
+.form-inclusao h2 {
+    margin-bottom: 8px;
+    font-size: 23px;
+    line-height: 1.35;
+}
+
+.form-inclusao label {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-inclusao input[type="text"] {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+    color: var(--preto);
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-inclusao input[type="text"]:focus {
+    border-color: var(--roxo);
+    box-shadow: 0 0 0 3px var(--roxo-claro);
+}
+
+/* Botão próprio para salvar a tarefa */
+
+.form-inclusao .btn-salvar-tarefa {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 8px;
+    padding: 12px 18px;
+    color: var(--branco);
+    background: var(--roxo);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.form-inclusao .btn-salvar-tarefa:hover {
+    background: var(--roxo-hover);
+}
+
+.form-inclusao .btn-salvar-tarefa:active {
+    transform: scale(0.99);
+}
+
+.form-inclusao > a {
+    padding: 8px;
+    color: var(--cinza);
+    text-align: center;
+    font-size: 14px;
+}
+
+.form-inclusao > a:hover {
+    color: var(--roxo);
+}
+
+.erro {
+    color: var(--vermelho);
+    font-size: 14px;
+}
+
+/* Confirmação de exclusão */
+
+.confirmacao-exclusao {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 36px;
+    background: var(--branco);
+    border: 1px solid #E5E1EB;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 30px #1E14320D;
+}
+
+.icone-alerta {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--roxo-claro);
+    color: var(--roxo);
+    font-size: 26px;
+}
+
+.confirmacao-exclusao h2 {
+    margin-bottom: 12px;
+    color: var(--preto);
+}
+
+.confirmacao-exclusao p {
+    color: #666666;
+    line-height: 1.6;
+}
+
+.nome-tarefa-exclusao {
+    margin: 18px 0;
+    padding: 14px;
+    border-radius: 10px;
+    background: #F7F5FA;
+    color: var(--preto) !important;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.aviso-exclusao {
+    font-size: 13px;
+}
+
+.acoes-exclusao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.acoes-exclusao form {
+    margin: 0;
+}
+
+.btn-cancelar,
+.btn-confirmar-exclusao {
+    min-height: 44px;
+    padding: 12px 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-cancelar {
+    border-color: #E5E1EB;
+    background: var(--branco);
+    color: #333333;
+}
+
+.btn-cancelar:hover {
+    background: #F5F3F8;
+}
+
+.btn-confirmar-exclusao {
+    background: var(--vermelho);
+    color: var(--branco);
+}
+
+.btn-confirmar-exclusao:hover {
+    background: #B91C1C;
+}
+
+/* Rodapé */
+
+.rodape {
+    padding: 22px;
+    color: var(--cinza);
+    background: var(--branco);
+    border-top: 1px solid var(--borda);
+    text-align: center;
+    font-size: 13px;
+}
+
+/* Tablets */
+
+@media (max-width: 768px) {
+    .cabecalho {
+        padding: 30px 20px 24px;
+    }
+
+    .container {
+        width: min(100% - 32px, 850px);
+        margin: 30px auto;
+    }
+
+    .tarefa {
+        padding: 16px;
+    }
+}
+
+/* Celulares */
+
+@media (max-width: 480px) {
+    .cabecalho h1 {
+        letter-spacing: -1px;
+    }
+
+    .cabecalho p {
+        font-size: 13px;
+    }
+
+    .container {
+        width: calc(100% - 24px);
+        margin: 24px auto;
+    }
+
+    .controles {
+        gap: 9px;
+    }
+
+    .pesquisa {
+        gap: 7px;
+    }
+
+    .pesquisa input[type="text"] {
+        height: 44px;
+        padding: 0 10px;
+        font-size: 12px;
+    }
+
+    .pesquisa button {
+        height: 44px;
+        padding: 0 10px;
+        font-size: 12px;
+    }
+
+    .controles > .btn-adicionar {
+        width: 44px;
+        height: 44px;
+        flex-basis: 44px;
+        font-size: 28px;
+    }
+
+    .filtros {
+        gap: 7px;
+        margin-bottom: 24px;
+    }
+
+    .filtros a {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .lista-tarefas h2 {
+        font-size: 19px;
+    }
+
+    .tarefa {
+        gap: 8px;
+        padding: 13px 11px;
+    }
+
+    .form-tarefa {
+        gap: 8px;
+    }
+
+    .tarefa-conteudo {
+        gap: 8px;
+    }
+
+    .tarefa-conteudo span {
+        font-size: 13px;
+    }
+
+    .btn-status,
+    .btn-excluir {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+    }
+
+    .lista-vazia {
+        padding: 30px 16px;
+    }
+
+    .form-inclusao {
+        padding: 20px;
+    }
+
+    .form-inclusao h2 {
+        font-size: 21px;
+    }
+
+    .confirmacao-exclusao {
+        padding: 24px 18px;
+    }
+
+    .acoes-exclusao {
+        flex-direction: column;
+    }
+
+    .acoes-exclusao a,
+    .acoes-exclusao form {
+        width: 100%;
+    }
+
+    .btn-confirmar-exclusao {
+        width: 100%;
+    }
+}
+
+
+.pagina-login {
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 16px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--fundo);
+    color: var(--preto);
+}
+
+/* Cabeçalho: sem barra branca nem borda, direto sobre o fundo */
+.cabecalho-login {
+    width: 100%;
+    margin-bottom: 22px;
+    padding: 0;
+    text-align: center;
+    background: transparent;
+    border: none;
+}
+
+.cabecalho-login h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.cabecalho-login p {
+    margin-top: 6px;
+    color: var(--cinza);
+    font-size: 14px;
+}
+
+/* Container centralizado e do tamanho do card */
+.container-login {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    flex: 0 0 auto;
+    display: block;
+}
+
+/* Card */
+.form-login {
+    width: 100%;
+    max-width: none;
+    padding: 12px 12px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+}
+
+/* Ícone verde (como na referência) */
+.icone-login {
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1F7A4D;
+    background: #E3EFE7;
+    border-radius: 14px;
+    font-size: 22px;
+}
+
+.icone-login i {
+    color: #1F7A4D;
+}
+
+.form-login h2 {
+    margin: 0 0 18px;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+}
+
+/* A referência não mostra essa descrição.
+   Apague esta regra se quiser exibi-la. */
+.descricao-login {
+    display: none;
+}
+
+/* Campos */
+.campo-login {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.campo-login label {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.campo-login input {
+    width: 100%;
+    height: 46px;
+    padding: 0 14px;
+    color: var(--preto);
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    outline: none;
+    font-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo-login input::placeholder {
+    color: #8D909B;
+}
+
+.campo-login input:focus {
+    border-color: var(--roxo);
+    box-shadow: 0 0 0 3px var(--roxo-claro);
+}
+
+/* Botão */
+.btn-login {
+    width: 100%;
+    height: 50px;
+    margin-top: 4px;
+    padding: 0 18px;
+    color: var(--branco);
+    background: var(--roxo);
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-login:hover {
+    background: var(--roxo-hover);
+}
+
+.btn-login:active {
+    transform: translateY(1px);
+}
+
+/* Link de cadastro: cinza, sem destaque roxo */
+.link-cadastro {
+    margin: 14px 0 0;
+    color: var(--cinza);
+    text-align: center;
+    font-size: 13px;
+}
+
+.link-cadastro a {
+    color: var(--cinza);
+    font-weight: 400;
+}
+
+.link-cadastro a:hover {
+    color: var(--roxo);
+    text-decoration: underline;
+}
+
+/* Mensagem de erro */
+.mensagem-erro {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding: 10px 14px;
+    color: var(--vermelho);
+    background: #FEF2F2;
+    border: 1px solid #FECACA;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+/* Rodapé discreto, sem barra branca */
+.pagina-login .rodape {
+    width: 100%;
+    margin-top: auto;
+    padding: 24px 0;
+    color: #A3A3A3;
+    background: transparent;
+    border: none;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+    .pagina-login {
+        padding-top: 28px;
+    }
+
+    .cabecalho-login h1 {
+        font-size: 24px;
+    }
+}
+
+
+/* ===== Botão de Logout ===== */
+
+.cabecalho {
+    position: relative;
+}
+
+.form-logout {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+}
+
+.btn-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    color: var(--roxo);
+    background: var(--branco);
+
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-logout:hover {
+    color: var(--branco);
+    background: var(--roxo);
+}
+
+.btn-logout i {
+    font-size: 14px;
+}
+
+/* Responsividade */
+
+@media (max-width: 480px) {
+    .form-logout {
+        top: 15px;
+        right: 12px;
+        transform: none;
+    }
+
+    .btn-logout {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .cabecalho h1 {
+        padding-top: 35px;
+    }
+}
