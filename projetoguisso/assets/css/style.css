@@ -715,14 +715,14 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #1F7A4D;
-    background: #E3EFE7;
+    color: #511f7a;
+    background: #ede9fe;
     border-radius: 14px;
     font-size: 22px;
 }
 
 .icone-login i {
-    color: #1F7A4D;
+    color: #811ddf;
 }
 
 .form-login h2 {
@@ -914,4 +914,16 @@ a {
     .cabecalho h1 {
         padding-top: 35px;
     }
+}
+
+.mensagem-boas-vindas {
+    position: absolute;
+    top: 60px;
+    left: 25px;
+
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+
+    margin: 0;
 }

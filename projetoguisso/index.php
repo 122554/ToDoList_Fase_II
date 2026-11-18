@@ -67,6 +67,9 @@ $tarefas = R::find('tarefa', $sql . ' ORDER BY id DESC', $valores);
 <body>
 
     <header class="cabecalho">
+    <p class="mensagem-boas-vindas">
+        Olá, <?= htmlspecialchars($_SESSION['usuario_nome'], ENT_QUOTES, 'UTF-8') ?>!
+    </p>
         <h1>Minhas Tarefas</h1>
         <p>Organize sua rotina, uma tarefa por vez.</p>
 
